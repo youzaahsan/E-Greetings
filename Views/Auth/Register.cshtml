@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - E-Greetings</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/E_Greetings.styles.css" asp-append-version="true" />
+    <style>
+        .auth-bg {
+            background: linear-gradient(135deg, #F5F7FA 0%, #E2E8F0 100%);
+        }
+    </style>
+</head>
+
+<body class="auth-bg">
+
+    <div class="auth-wrapper">
+        <div class="auth-card card shadow-lg text-center">
+            <div class="mb-4">
+                <a href="index.html" class="text-decoration-none">
+                    <h2 class="fw-bold text-dark">E-Greetings</h2>
+                </a>
+                <p class="text-muted">Create an account to start sending cards.</p>
+            </div>
+
+            <form class="needs-validation text-start" novalidate action="dashboard/user-dashboard.html">
+                <div class="mb-3">
+                    <label for="fullname" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullname" required>
+                    <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" required>
+                    <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" required minlength="6">
+                    <div class="invalid-feedback">Password must be at least 6 characters.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" required>
+                    <div class="invalid-feedback">Please confirm your password.</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Create Account</button>
+            </form>
+
+            <p class="text-muted small mb-0">
+                Already have an account? <a href="login.html"
+                                            class="text-accent fw-bold">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Password matching validation
+        const password = document.getElementById("password");
+        const confirm_password = document.getElementById("confirmPassword");
+
+        function validatePassword() {
+            if (password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script>
+</body>
+
+</html>
