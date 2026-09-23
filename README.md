@@ -1,4 +1,4 @@
-﻿# E-Greetings
+
  # 💌 E-Greetings
 
 ### Digital Greeting Card Platform — ASP.NET Core MVC
